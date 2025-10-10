@@ -1,0 +1,30 @@
+Files constituting backend:
+
+1. package.json - stores name and other metadata about the project (name, repository, dependencies etc)
+
+2. .env - stores variables which change wrt the environment on which backend code runs - nodejs (local env) or production level. These variables often include things like API keys, database URLs, credentials, secret tokens, etc., which are critical for backend but should remain configurable and private.
+
+NOTE - As the content inside the file changes wrt the env we work in, so does the env file change!
+
+NOTE - We dont push this file to git for security purpose
+
+3. additional files (readme, gitignore, prettier etc)
+
+GENERIC DIRECTORY STRUCTURE OF BACKEND:
+
+└── backend/
+    ├── package.json
+    ├── .env
+    └── src/
+        ├── model - Defines the structure and rules of interacting with data at the code level
+
+        ├── database - Takes that definition and creates the actual database schema (table, columns, constraints) in the database.
+
+        ├── controllers - Contain all methods/functions of the app
+
+        ├── routes - are like paths or doors that a user or client (like a web browser) can go through to access different parts of the app. Each endpoint performs a specific function, like retrieving data, creating new data, or updating existing data
+
+        ├── middlewares - a function that intercepts incoming requests in a backend application, allowing you to perform actions like validation, logging, or authentication before passing control to the next function (usually a route handler)
+
+        ├── utils
+        └── more (depends)
