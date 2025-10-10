@@ -1,0 +1,28 @@
+body 
+{
+    background: url('sky_bg.jpg') no-repeat center/cover;
+    height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+body::before 
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('sky_bg.jpg') no-repeat center/cover;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.content 
+{
+    position: relative;
+    text-align: center;
+    color: white;
+    padding: 50px;
+}

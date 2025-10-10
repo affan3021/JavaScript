@@ -1,6 +1,8 @@
 const express = require("express");
 const mysql = require("mysql2");
 require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt");
 const path = require("path");
 
 const app = express();
@@ -26,6 +28,11 @@ db.connect((err) =>
     }
     console.log("DB CONNECTED SUCCESSFULLY!");
 });
+
+function authenticateToken(req,res,next)
+{
+    
+}
 app.get("/api/todos",(req,res) =>
 {
     const sql = "SELECT * FROM todos";

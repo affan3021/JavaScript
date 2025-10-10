@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="UX-A-Compatible" content="IE=Edge"/>
+        <title>AJAX MINI PROJECT</title>
+    </head>
+    <body style="background-color: #212121; color:azure; font-size: xx-large;">
+        <h1>A project to fetch values from 'velourcodes' git api via XMLHttpRequest</h1>
+        <div id="buttons">
+            <button id="name">I fetch name</button>
+            <button id="prof_pic">I fetch the profile picture</button>
+            <button id="url">I fetch git URL</button>
+            <button id="loc">I fetch the location</button>
+            <button id="userView">I fetch the user view type</button>
+        </div>
+        <script>
+            const API_URL = 'https://api.github.com/users/velourcodes';
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', API_URL);
+            xhr.onload = function()
+            {
+                console.log(this.responseText);
+                const data = JSON.parse(this.responseText); 
+                console.log(data);
+                document.querySelectorAll('#buttons').forEach(b => 
+                {
+                    b.addEventListener('click', (e) => 
+                    {
+                        console.log("API Owner Details are:")
+                        let apiDiv = document.createElement('div');
+                        apiDiv.id='apiDiv';
+                        document.body.append(apiDiv);
+                        if(e.target.id==='name')
+                        {
+                            console.log('Name: ',data.name);
+                            let name = document.createElement('h3');
+                            name.innerHTML=data.name;
+                            apiDiv.append(name);
+                        }
+                        if(e.target.id==='prof_pic')
+                        {
+                            console.log('API URL: ',data.avatar_url);
+                            let avatar = document.createElement('img');
+                            avatar.setAttribute('src','https://avatars.githubusercontent.com/u/199387464?v=4');
+                            apiDiv.append(avatar);
+                        }
+                        if(e.target.id==='url')
+                        {
+                            console.log('API URL: ',data.url);
+                            let url = document.createElement('h3');
+                            url.innerHTML=data.url;
+                            apiDiv.append(url);
+                        }
+                        if(e.target.id==='loc')
+                        {
+                            console.log('Location : ',data.location);
+                            let loc = document.createElement('h3');
+                            loc.innerHTML=data.location;
+                            apiDiv.append(loc);
+                        }
+                        if(e.target.id==='userView')
+                        {
+                            console.log('Repo Type: ',data.user_view_type);
+                            let repoType = document.createElement('h3');
+                            repoType.innerHTML=data.user_view_type;
+                            apiDiv.append(repoType);
+                        }
+                    });
+                }
+            );
+            }
+            xhr.send();
+        </script>
+    </body>
+</html>

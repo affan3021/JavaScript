@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="UX-A-Compatible" content="IE=Edge"/>
+        <title>React Example</title>
+    </head>
+
+    <body>
+        <button>Click Me</button>
+    </body>
+    <script>
+            class React
+            {
+                constructor()
+                {
+                    this.library = "React";
+                    this.server = "https://todo-api-affan.netlify.app"
+                    document.querySelector('button').addEventListener('click',this.handleClick.bind(this)) 
+                    //bind() passes reference to class memeber vars
+                }
+                handleClick()
+                {
+                    console.log('Button was clicked');
+                    console.log(this);
+                }
+            }
+            const app = new React()
+    </script>
+</html>
