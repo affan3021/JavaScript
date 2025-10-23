@@ -1,0 +1,17 @@
+{
+  "name": "backend_velour",
+  "version": "1.0.0",
+  "description": "Learning backend with one single project in depth",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "root/src/index.js"
+  },
+  "keywords": [
+    "JavaScript",
+    "node",
+    "nodejs",
+    "backend"
+  ],
+  "author": "Mohammad Affan Siddiqi (Velour Codes)",
+  "license": "ISC"
+}
